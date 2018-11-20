@@ -1,0 +1,143 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
+//apply plugin: 'android-aspectjx'
+
+static def releaseTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
+}
+
+android {
+    compileSdkVersion configs.compileSdkVersion
+    defaultConfig {
+        applicationId constants.applicationId
+        minSdkVersion configs.minSdkVersion
+        targetSdkVersion configs.targetSdkVersion
+        versionCode configs.versionCode
+        versionName configs.versionName
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "APP_INNER_VERSION", "\"" + constants.appInnerVersion + "\""
+    }
+    sourceSets.main {
+        java.srcDirs = ['src/main/java', 'src/main/java-gen']
+        jniLibs.srcDirs = ['libs', 'src/main/libs']
+        jni.srcDirs = [] //disable automatic ndk-build call
+    }
+    buildTypes {
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            buildConfigField "String", "BASE_URL", "\"" + constants.releaseBaseUrl + "\""
+            minifyEnabled true
+            zipAlignEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            buildConfigField "String", "BASE_URL", "\"" + constants.debugBaseUrl + "\""
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    //输出apk配置
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def outputFile = output.outputFile
+            def fileName
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                // 输出apk名称为 Payment_v1.0.0_20170816_release.apk
+                if (variant.buildType.name == 'release') {
+                    fileName = "${constants.appName}_${defaultConfig.versionName}_${releaseTime()}_release.apk"
+                } else if (variant.buildType.name == 'debug') {
+                    fileName = "${constants.appName}_${defaultConfig.versionName}_debug.apk"
+                }
+                outputFileName = fileName
+            }
+        }
+    }
+    greendao {
+        schemaVersion 1
+        daoPackage 'com.smart.desktop.databases'
+        targetGenDir 'src/main/java-gen'
+    }
+    lintOptions {
+        abortOnError false
+        disable 'InvalidPackage', 'MissingTranslation', 'ExtraTranslation'
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+        preDexLibraries = false
+        jumboMode true
+    }
+    compileOptions {
+        encoding 'UTF-8'
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+}
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+//aspectjx {
+//    //排除所有package路径中包含`android.support`的class文件及库（jar文件）
+//    exclude 'android.support'
+//}
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation libs.junit
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    //UI相关
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation libs.appcompatV7
+    implementation libs.supportV4
+    implementation libs.cardView
+    implementation libs.design
+    //辅助相关
+    implementation 'net.sourceforge.streamsupport:streamsupport:1.5.6'
+    implementation 'com.nineoldandroids:library:2.4.0'
+    //retrofit
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    //json
+    implementation 'com.google.code.gson:gson:2.8.2'
+    //okhttp log
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
+    //rx java
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.12'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    implementation 'com.jakewharton.rxrelay2:rxrelay:2.0.0'
+    //图片下载
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    //幻灯片框架
+    implementation 'com.xhb:xbanner:1.3.1'
+    //数据库
+    implementation 'org.greenrobot:greendao:3.2.2'
+    implementation 'org.greenrobot:greendao-generator:3.2.2'
+    //UI绑定
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    //日志
+    implementation 'com.github.tony19:logback-android-core:1.1.1-4'
+    implementation 'com.github.tony19:logback-android-classic:1.1.1-4'
+    implementation 'org.slf4j:slf4j-api:1.7.22'
+    // assist
+    debugImplementation 'com.github.markzhai:blockcanary-android:1.5.0'
+    releaseImplementation 'com.github.markzhai:blockcanary-no-op:1.5.0'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.2'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
+    //DEX方法超过64K
+    implementation 'com.android.support:multidex:1.0.3'
+    //AOP切面编程
+    implementation 'org.aspectj:aspectjrt:1.8.9'
+    //工具包
+    implementation project(':lib-utils')
+    //标题栏拉伸效果
+    implementation project(':lib-app-bar')
+}
