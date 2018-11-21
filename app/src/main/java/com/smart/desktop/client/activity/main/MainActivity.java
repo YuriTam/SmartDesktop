@@ -9,10 +9,10 @@ import android.widget.ImageView;
 import com.common.utils.UIUtils;
 import com.smart.desktop.R;
 import com.smart.desktop.base.BaseActivity;
-import com.smart.desktop.client.activity.detail.DetailActivity;
 import com.smart.desktop.client.activity.login.LoginActivity;
 import com.smart.desktop.client.activity.merchant.MerchantActivity;
 import com.smart.desktop.client.activity.setting.SettingActivity;
+import com.smart.desktop.client.activity.trans_list.TransListActivity;
 import com.smart.desktop.client.activity.user.UserActivity;
 import com.smart.desktop.client.activity.version.VersionActivity;
 import com.smart.desktop.client.fragment.EditDialogFragment;
@@ -92,7 +92,7 @@ public class MainActivity extends BaseActivity implements XBanner.XBannerAdapter
         ((ImageView) view).setImageResource(mImages[position]);
     }
 
-    @OnClick({R.id.title_iv_right, R.id.btn_merchant, R.id.btn_trans_detail,
+    @OnClick({R.id.title_iv_right, R.id.btn_merchant, R.id.btn_trans_list,
             R.id.btn_sys_setting, R.id.btn_version})
     public void onViewClicked(View view) {
         if (UIUtils.isDoubleClick()) return;
@@ -104,8 +104,8 @@ public class MainActivity extends BaseActivity implements XBanner.XBannerAdapter
             case R.id.btn_merchant:
                 intent2Activity(MerchantActivity.class);
                 break;
-            case R.id.btn_trans_detail:
-                intent2Activity(DetailActivity.class);
+            case R.id.btn_trans_list:
+                intent2Activity(TransListActivity.class);
                 break;
             case R.id.btn_sys_setting:
                 showInputAdminPasswordDialog();

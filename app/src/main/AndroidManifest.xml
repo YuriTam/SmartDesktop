@@ -34,7 +34,7 @@
         <!-- 启动页 -->
         <activity
             android:name=".client.activity.splash.SplashActivity"
-            android:launchMode="standard"></activity>
+            android:launchMode="standard" />
         <!-- 主界面 -->
         <activity
             android:name=".client.activity.main.MainActivity"
@@ -54,10 +54,16 @@
                 android:value=".client.activity.main.MainActivity" />
         </activity>
         <!-- 交易明细界面 -->
-        <activity android:name=".client.activity.detail.DetailActivity">
+        <activity android:name=".client.activity.trans_list.TransListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".client.activity.main.MainActivity" />
+        </activity>
+        <!-- 交易详情界面 -->
+        <activity android:name=".client.activity.trans_detail.TransDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".client.activity.trans_list.TransListActivity" />
         </activity>
         <!-- 系统设置界面 -->
         <activity android:name=".client.activity.setting.SettingActivity">
@@ -71,8 +77,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".client.activity.main.MainActivity" />
         </activity>
+        <!-- 登录界面 -->
         <activity android:name=".client.activity.login.LoginActivity" />
-        <activity android:name=".client.activity.user.UserActivity"></activity>
+        <!-- 操作员信息界面 -->
+        <activity android:name=".client.activity.user.UserActivity" />
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.smart.desktop.client.activity.detail;
+package com.smart.desktop.client.activity.trans_detail;
 
 import android.os.Bundle;
 import android.view.View;
@@ -11,12 +11,12 @@ import com.smart.desktop.common.widget.TitleBuilder;
 import butterknife.OnClick;
 
 /**
- * 交易明细
+ * 交易详情
  *
  * @author 谭忠扬-YuriTam
  * @time 2018年12月21日
  */
-public class DetailActivity extends BaseActivity {
+public class TransDetailActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class DetailActivity extends BaseActivity {
 
     @Override
     protected int layoutId() {
-        return R.layout.activity_detail;
+        return R.layout.activity_trans_detail;
     }
 
     @Override

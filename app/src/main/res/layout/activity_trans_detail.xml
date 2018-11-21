@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".client.activity.detail.DetailActivity">
+    tools:context=".client.activity.trans_detail.TransDetailActivity">
 
     <include layout="@layout/include_title_bar"/>
 

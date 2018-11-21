@@ -111,7 +111,7 @@
             android:layout_height="match_parent"/>
 
         <com.smart.desktop.common.widget.IconButton
-            android:id="@+id/btn_trans_detail"
+            android:id="@+id/btn_trans_list"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -121,7 +121,7 @@
             app:iconPadding="10dp"
             android:textColor="@color/white"
             android:textSize="16sp"
-            android:text="@string/trans_detail"/>
+            android:text="@string/trans_list"/>
 
     </LinearLayout>
 

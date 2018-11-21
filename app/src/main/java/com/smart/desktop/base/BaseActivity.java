@@ -1,6 +1,7 @@
 package com.smart.desktop.base;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -44,6 +45,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     private final CompositeDisposable mDisposables = new CompositeDisposable();
     //退出的间隔时间
     private final int INTERNAL_TIME = 2000;
+
+    protected Context mContext;
     //记录最后一次返回时间
     private long mLastTime;
     //是否禁用返回键
@@ -69,6 +72,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         //Settings.System.putInt(getContentResolver(), "status_bar_disabled", 1);
         //getWindow().addFlags(3);//屏蔽home键
         //getWindow().addFlags(5);//屏蔽菜单键
+
+        mContext = this;
 
         initView();
         initEvent();
