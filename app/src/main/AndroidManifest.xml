@@ -30,15 +30,49 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+
+        <!-- 启动页 -->
+        <activity
+            android:name=".client.activity.splash.SplashActivity"
+            android:launchMode="standard"></activity>
+        <!-- 主界面 -->
         <activity
             android:name=".client.activity.main.MainActivity"
             android:launchMode="singleTask">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
+                <!-- 指定此Activity为应用程序的启动界面 -->
+                <action android:name="android.intent.action.MAIN" />
+                <!-- 指定桌面显示应用图标 -->
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- 商户信息界面 -->
+        <activity android:name=".client.activity.merchant.MerchantActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".client.activity.main.MainActivity" />
+        </activity>
+        <!-- 交易明细界面 -->
+        <activity android:name=".client.activity.detail.DetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".client.activity.main.MainActivity" />
+        </activity>
+        <!-- 系统设置界面 -->
+        <activity android:name=".client.activity.setting.SettingActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".client.activity.main.MainActivity" />
+        </activity>
+        <!-- 版本信息界面 -->
+        <activity android:name=".client.activity.version.VersionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".client.activity.main.MainActivity" />
+        </activity>
+        <activity android:name=".client.activity.login.LoginActivity" />
+        <activity android:name=".client.activity.user.UserActivity"></activity>
     </application>
 
 </manifest>

@@ -35,23 +35,36 @@
     <string name="check_version_update">检查版本更新</string>
     <string name="check_whether_has_new_version">正在检查是否有新版本，请稍候...</string>
 
-    <!-- 导航栏 -->
-    <string name="home">首页</string>
-    <string name="coupon">优惠券</string>
-    <string name="service">服务</string>
-    <string name="mine">我的</string>
-
     <string name="setting">设置</string>
     <string name="pls_input_admin_password">请输入管理员密码</string>
     <string name="already_new_version">已经是最新版本</string>
-    <string name="password_error">密码错误</string>
     <string name="input_is_empty">输入内容为空</string>
-    <string name="version_info">版本信息</string>
-
     <string name="loading">加载中…</string>
     <string name="has_no_more_data">没有更多数据了</string>
+
+    <!-- 首页相关 -->
+    <string name="main_title">盛迪嘉收银台</string>
     <string name="merchant_info">商户信息</string>
     <string name="trans_detail">交易明细</string>
     <string name="system_setting">系统设置</string>
+    <string name="version_info">版本信息</string>
+
+    <!-- 登录相关 -->
+    <string name="login">登录</string>
+    <string name="forget_password">忘记密码?</string>
+    <string name="sdj_payment">盛迪嘉支付</string>
+    <string name="user_no">编号</string>
+    <string name="user_password">密码</string>
+    <string name="password_error">密码错误</string>
+    <string name="input_user_no_is_empty">输入编号不可为空</string>
+    <string name="input_password_is_empty">输入密码不可为空</string>
+    <string name="pls_contact_admin">请联系管理员</string>
+
+    <!-- 版本信息相关 -->
+    <string name="check_update">版本检测</string>
+    <string name="is_newest_version">已是最新版本</string>
+
+    <!-- 操作员相关 -->
+    <string name="user_info">操作员信息</string>
 
 </resources>

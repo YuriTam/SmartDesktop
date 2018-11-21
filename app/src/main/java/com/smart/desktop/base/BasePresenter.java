@@ -2,6 +2,7 @@ package com.smart.desktop.base;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.text.TextUtils;
 
 import com.smart.desktop.core.aop.annotation.RunOnMainThread;
 import com.smart.desktop.core.api.IDataSource;
@@ -64,6 +65,36 @@ public class BasePresenter {
      */
     protected void doClearRxBus(){
         mDisposables.clear();
+    }
+
+    /**
+     * 保存参数信息
+     *
+     * @param key 键
+     * @param value 值
+     */
+    protected void saveParamValue(String key, String value){
+        if (TextUtils.isEmpty(key)){
+            mLog.debug("参数键不可为空，参数信息保存失败");
+            return;
+        }
+        mRepository.saveParamValue(key, value);
+        mRepository.syncParamValue();
+    }
+
+    /**
+     * 获取参数信息
+     *
+     * @param key 键
+     * @param defValue 默认值
+     * @return 返回值
+     */
+    protected String getParamValue(String key, String defValue){
+        if (TextUtils.isEmpty(key)){
+            mLog.debug("参数键不可为空，获取参数信息失败");
+            return null;
+        }
+        return mRepository.getParamValue(key, defValue);
     }
 
     /**

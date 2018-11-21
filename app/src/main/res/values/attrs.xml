@@ -35,6 +35,11 @@
         <attr name="tv_right_text" format="string"/>
         <attr name="tv_font_style" format="reference|integer"/>
     </declare-styleable>
+    <!-- 列表自定义属性 -->
+    <declare-styleable name="ArrowLinearLayout">
+        <attr name="icon_src" format="reference"/>
+        <attr name="arrow_name" format="string"/>
+    </declare-styleable>
     <!-- 密码输入框自定义属性 -->
     <declare-styleable name="PasswordInputView">
         <attr name="borderWidth" format="dimension"/>

@@ -172,4 +172,10 @@
     <color name="tab_checked">#33b5E5</color>
     <color name="tab_unchecked">#757575</color>
 
+    <color name="colorText">#f1f1f1</color>
+    <color name="colorBackground">#f8f8cf</color>
+    <color name="statusBarColor">#33f47d31</color>
+    <color name="buttonColor">#f58843</color>
+    <color name="dark_green">#af092d2a</color>
+
 </resources>

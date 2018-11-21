@@ -92,9 +92,9 @@ public class ApiRepository implements IDataSource {
                             //如果该参数有值，则直接跳过
                             if (!TextUtils.isEmpty(getParamValue(key, ""))) continue;
                             //设置参数的值
-                            setParamValue(key, params.get(key));
+                            saveParamValue(key, params.get(key));
                         }
-                        setParamValue(SysConstant.PARAM_INIT_FLAG, "1");
+                        saveParamValue(SysConstant.PARAM_INIT_FLAG, "1");
                         syncParamValue();
                         mLog.debug("----- 结束初始化终端参数 -----");
                     });
@@ -104,7 +104,7 @@ public class ApiRepository implements IDataSource {
     }
 
     @Override
-    public void setParamValue(String key, String value) {
+    public void saveParamValue(String key, String value) {
         mLog.debug("保存数据 key = {}, value = {}", key, value);
         mEditor.putString(key, value);
     }

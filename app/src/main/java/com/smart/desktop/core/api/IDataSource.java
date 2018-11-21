@@ -25,7 +25,7 @@ public interface IDataSource {
      * @param key   键值
      * @param value 数据
      */
-    void setParamValue(String key, String value);
+    void saveParamValue(String key, String value);
 
     /**
      * 获取map内存表数据
