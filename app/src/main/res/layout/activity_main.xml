@@ -14,64 +14,28 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="vertical"
-        android:padding="15dp">
+        android:orientation="vertical">
 
-        <LinearLayout
+        <com.smart.desktop.common.widget.ReceiptView
+            android:id="@+id/rec_view"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                style="?android:attr/borderlessButtonStyle"
-                android:background="@drawable/btn_blue_circle_bg"/>
-
-            <View
-                android:layout_width="10dp"
-                android:layout_height="match_parent"/>
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                style="?android:attr/borderlessButtonStyle"
-                android:background="@drawable/btn_blue_circle_bg"/>
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                style="?android:attr/borderlessButtonStyle"
-                android:background="@drawable/btn_blue_circle_bg"/>
-
-            <View
-                android:layout_width="10dp"
-                android:layout_height="match_parent"/>
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                style="?android:attr/borderlessButtonStyle"
-                android:background="@drawable/btn_blue_circle_bg"/>
-
-        </LinearLayout>
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            app:rec_radius="90dp"
+            app:rec_padding="10dp"
+            app:rec_arc_width="8dp"
+            app:rec_color="@color/holo_blue_dark"
+            app:rec_gap_color="@color/holo_blue_light"
+            app:rec_gap_width="10dp"
+            app:rec_text_color="@color/white"
+            app:rec_center_text_size="50sp"
+            app:rec_center_text="@string/cash_register"
+            app:rec_rect_text_size="20sp"
+            app:rec_adjustment="10dp"
+            app:rec_tl_text="@string/sign_in"
+            app:rec_tr_text="@string/other"
+            app:rec_bl_text="@string/manager"
+            app:rec_br_text="@string/print"/>
 
     </LinearLayout>
 

@@ -34,13 +34,14 @@
         <!-- 启动页 -->
         <activity
             android:name=".client.activity.splash.SplashActivity"
-            android:launchMode="standard" />
+            android:launchMode="standard">
+
+        </activity>
         <!-- 主界面 -->
         <activity
             android:name=".client.activity.main.MainActivity"
             android:launchMode="singleTask">
             <intent-filter>
-
                 <!-- 指定此Activity为应用程序的启动界面 -->
                 <action android:name="android.intent.action.MAIN" />
                 <!-- 指定桌面显示应用图标 -->

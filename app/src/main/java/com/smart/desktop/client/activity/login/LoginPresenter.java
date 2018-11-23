@@ -8,6 +8,7 @@ import com.smart.desktop.base.BasePresenter;
 import com.smart.desktop.common.constant.ParamKey;
 import com.smart.desktop.common.utils.StringUtils;
 import com.smart.desktop.core.api.IDataSource;
+import com.smart.desktop.core.bean.UserInfo;
 
 import static com.common.utils.Utils.checkNotNull;
 
@@ -56,12 +57,18 @@ public class LoginPresenter extends BasePresenter implements LoginContract.Prese
         }
         userNo = StringUtils.leftPad(userNo, 2, '0');
         mLog.debug("登录：userNo = {}, password = {}", userNo, password);
-        if (!"0000".equals(password)){
+        UserInfo info = mRepository.getUserInfo(userNo);
+        if (info == null){
+            postMainThread(() -> mView.showMsg(App.sContext.getString(R.string.user_no_is_no_exist)));
+            postMainThread(() -> mView.clearEditText());
+            return;
+        }
+        if (!password.equals(info.getPassword())){
             postMainThread(() -> mView.showMsg(App.sContext.getString(R.string.password_error)));
             return;
         }
         //更新登录状态
-        saveParamValue(ParamKey.LOGIN_STATUS, "1");
+        saveParamValue(ParamKey.CURRENT_USER_NO, userNo);
         postMainThread(() -> mView.onSuccess());
     }
 

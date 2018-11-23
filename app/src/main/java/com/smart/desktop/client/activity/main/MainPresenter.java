@@ -59,12 +59,12 @@ public class MainPresenter extends BasePresenter implements MainContract.Present
     @Override
     public void intent2UserInfo() {
         //判断是否已经登录
-        if ("1".equals(mRepository.getParamValue(ParamKey.LOGIN_STATUS, "0"))){
-            mLog.debug("已登录");
+        if (!TextUtils.isEmpty(mRepository.getParamValue(ParamKey.CURRENT_USER_NO, ""))){
+            mLog.debug("已签到");
             postMainThread(() -> mView.onLoginSuccess());
             return;
         }
-        mLog.debug("未登录");
+        mLog.debug("未签到");
         postMainThread(() -> mView.onLoginFailure());
     }
 }

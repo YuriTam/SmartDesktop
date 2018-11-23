@@ -47,6 +47,11 @@
 
     <!-- 首页相关 -->
     <string name="main_title">盛迪嘉收银台</string>
+    <string name="cash_register">收银</string>
+    <string name="sign_in">签到</string>
+    <string name="other">其他</string>
+    <string name="manager">管理</string>
+    <string name="print">打印</string>
     <string name="merchant_info">商户信息</string>
     <string name="trans_list">交易明细</string>
     <string name="trans_detail">交易详情</string>
@@ -57,6 +62,8 @@
     <string name="login">登录</string>
     <string name="forget_password">忘记密码?</string>
     <string name="sdj_payment">盛迪嘉支付</string>
+    <string name="input_operator">请输入操作员编号</string>
+    <string name="input_operator_password">请输入操作员密码</string>
     <string name="user_no">编号</string>
     <string name="user_password">密码</string>
     <string name="password_error">密码错误</string>
@@ -69,7 +76,30 @@
     <string name="is_newest_version">已是最新版本</string>
 
     <!-- 操作员相关 -->
-    <string name="user_info">操作员信息</string>
+    <string name="user_info">操作员</string>
+    <string name="operator_id">序号</string>
+    <string name="operator_no">编号</string>
+    <string name="operate">操作</string>
+    <string name="add">添加</string>
+    <string name="edit">编辑</string>
+    <string name="delete">删除</string>
+    <string name="operator_list_is_empty">操作员列表为空</string>
+    <string name="this_operator_is_exist">该操作员已存在</string>
+    <string name="add_success">添加成功</string>
+    <string name="password_update_success">修改成功</string>
+    <string name="delete_success">删除成功</string>
+    <string name="need_to_sign_by_admin_operator">需要主管签到进行此项操作</string>
+    <string name="can_no_edit_the_other_operator_info">非主管不可编辑其他操作员信息</string>
+    <string name="err_input">输入格式不正确</string>
+    <string name="disagree_password">输入密码不一致</string>
+    <string name="delete_operator">删除操作员</string>
+    <string name="delete_content_1">确定删除编号为‘</string>
+    <string name="delete_content_2">’操作员信息？</string>
+    <string name="new_password">新  密  码</string>
+    <string name="confirm_password">确认密码</string>
+    <string name="manager_desc">系统管理员</string>
+    <string name="admin_desc">系统主管</string>
+    <string name="operator_desc">普通操作员</string>
 
     <!-- 交易明细 -->
     <string name="trans_list_print_detail">打印明细</string>
@@ -89,5 +119,15 @@
     <string name="trace_num_not_exist">该凭证号不存在</string>
     <string name="loading">加载中…</string>
     <string name="has_no_more_data">没有更多数据了</string>
+
+    <!-- 商户信息相关 -->
+    <string name="merchant_name">商户名称</string>
+    <string name="merchant_no">商户编号</string>
+    <string name="terminal_no">终端编号</string>
+    <string name="merchant_user_name">商户姓名</string>
+    <string name="bank_account_no">结算账户</string>
+    <string name="merchant_address">商户地址</string>
+    <string name="user_no_is_no_exist">该操作员编号不存在</string>
+
 
 </resources>

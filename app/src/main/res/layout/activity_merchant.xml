@@ -9,4 +9,70 @@
 
     <include layout="@layout/include_title_bar"/>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+    <include layout="@layout/item_divider"/>
+
+    <com.smart.desktop.common.widget.ItemLinearLayout
+        android:id="@+id/merchant_name"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:left_text="@string/merchant_name"/>
+
+    <include layout="@layout/item_divider"/>
+
+    <com.smart.desktop.common.widget.ItemLinearLayout
+        android:id="@+id/merchant_no"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:left_text="@string/merchant_no"/>
+
+    <include layout="@layout/item_divider"/>
+
+    <com.smart.desktop.common.widget.ItemLinearLayout
+        android:id="@+id/terminal_no"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:left_text="@string/terminal_no"/>
+
+    <include layout="@layout/item_divider"/>
+
+    <com.smart.desktop.common.widget.ItemLinearLayout
+        android:id="@+id/merchant_user_name"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:left_text="@string/merchant_user_name"/>
+
+    <include layout="@layout/item_divider"/>
+
+    <com.smart.desktop.common.widget.ItemLinearLayout
+        android:id="@+id/bank_account_no"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:left_text="@string/bank_account_no"/>
+
+    <include layout="@layout/item_divider"/>
+
+    <com.smart.desktop.common.widget.ItemLinearLayout
+        android:id="@+id/merchant_address"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:left_text="@string/merchant_address"/>
+
+    <include layout="@layout/item_divider"/>
+
 </LinearLayout>

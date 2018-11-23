@@ -4,6 +4,8 @@ import android.content.Context;
 
 import com.smart.desktop.core.bean.UserInfo;
 
+import java.util.List;
+
 /**
  * 数据操作接口
  *
@@ -51,12 +53,19 @@ public interface IDataSource {
     void saveUser(UserInfo info);
 
     /**
-     * 根据ID来查询用户信息
-     * @param userId 用户ID
+     * 查询用户信息
+     *
+     * @param userNo 操作员编号
+     * @return
+     */
+    UserInfo getUserInfo(String userNo);
+
+    /**
+     * 获取所有操作员
      *
      * @return
      */
-    UserInfo getUserInfo(long userId);
+    List<UserInfo> getUserList();
 
     /**
      * 更新用户信息
@@ -66,11 +75,11 @@ public interface IDataSource {
     void updateUserInfo(UserInfo info);
 
     /**
-     * 根据ID来删除用户信息
+     * 删除用户信息
      *
-     * @param userId
+     * @param userNo
      */
-    void deleteByUserId(long userId);
+    void deleteByUserId(String userNo);
 
     /**
      * 删除所有用户信息

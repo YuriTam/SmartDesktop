@@ -10,6 +10,8 @@ import android.text.TextUtils;
 import com.common.utils.FileUtils;
 import com.google.gson.Gson;
 import com.smart.desktop.common.constant.SysConstant;
+import com.smart.desktop.common.enums.UserType;
+import com.smart.desktop.common.utils.StringUtils;
 import com.smart.desktop.core.bean.UserInfo;
 import com.smart.desktop.core.database.CustomOpenHelper;
 import com.smart.desktop.databases.DaoMaster;
@@ -21,6 +23,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 import java.util.Map;
 
 import java8.util.Optional;
@@ -64,7 +67,7 @@ public class ApiRepository implements IDataSource {
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
         mEditor = mSharedPreferences.edit();
 
-//        initParams();
+        initParams();
     }
 
     /**
@@ -98,6 +101,16 @@ public class ApiRepository implements IDataSource {
                         syncParamValue();
                         mLog.debug("----- 结束初始化终端参数 -----");
                     });
+            //初始操作员
+            for (int i = 1; i <= 5; i++){
+                UserInfo info = new UserInfo();
+                info.setUserNo(StringUtils.leftPad(String.valueOf(i), 2, '0'));
+                info.setPassword("0000");
+                saveUser(info);
+            }
+            //管理员及主管密码
+            saveUser(new UserInfo("00", "123456"));
+            saveUser(new UserInfo("99", "12345678"));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -128,26 +141,42 @@ public class ApiRepository implements IDataSource {
 
     @Override
     public void saveUser(UserInfo info) {
+        if (info == null) return;
         mDaoSession.getUserInfoDao().insert(info);
     }
 
     @Override
-    public UserInfo getUserInfo(long userId) {
+    public UserInfo getUserInfo(String userNo) {
+        if (TextUtils.isEmpty(userNo)) return null;
         return mDaoSession.getUserInfoDao()
                 .queryBuilder()
-                .where(UserInfoDao.Properties.Id.eq(userId))
+                .where(UserInfoDao.Properties.UserNo.eq(userNo))
                 .build()
                 .unique();
     }
 
     @Override
+    public List<UserInfo> getUserList() {
+        return mDaoSession.getUserInfoDao()
+                .queryBuilder()
+                .where(UserInfoDao.Properties.UserNo.notEq(UserType.SUPERVISOR.getUserNo()),
+                        UserInfoDao.Properties.UserNo.notEq(UserType.ADMIN.getUserNo()))
+                .list();
+    }
+
+    @Override
     public void updateUserInfo(UserInfo info) {
+        if (info == null) return;
         mDaoSession.getUserInfoDao().update(info);
     }
 
     @Override
-    public void deleteByUserId(long userId) {
-        mDaoSession.getUserInfoDao().deleteByKey(userId);
+    public void deleteByUserId(String userNo) {
+        if (TextUtils.isEmpty(userNo)) return;
+        UserInfo info = getUserInfo(userNo);
+        if (info != null){
+            mDaoSession.getUserInfoDao().delete(info);
+        }
     }
 
     @Override

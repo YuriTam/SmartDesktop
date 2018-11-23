@@ -16,6 +16,7 @@ import com.smart.desktop.client.activity.trans_list.TransListActivity;
 import com.smart.desktop.client.activity.user.UserActivity;
 import com.smart.desktop.client.activity.version.VersionActivity;
 import com.smart.desktop.client.fragment.EditDialogFragment;
+import com.smart.desktop.common.widget.ReceiptView;
 import com.smart.desktop.common.widget.TitleBuilder;
 import com.smart.desktop.core.api.ApiRepository;
 import com.stx.xhb.xbanner.XBanner;
@@ -33,10 +34,12 @@ import butterknife.OnClick;
  * @author 谭忠扬-YuriTam
  * @time 2018年11月20日
  */
-public class MainActivity extends BaseActivity implements XBanner.XBannerAdapter, MainContract.View {
-
+public class MainActivity extends BaseActivity implements XBanner.XBannerAdapter, MainContract.View, ReceiptView.OnRectClickListener {
+    private static final String IS_INTENT_2_USER = "isIntent2User";
     private Integer[] mImages = {R.mipmap.ad_point, R.mipmap.ad_quick, R.mipmap.ad_union};
 
+    @BindView(R.id.rec_view)
+    ReceiptView mRecView;
     @BindView(R.id.banner)
     XBanner mBanner;
 
@@ -46,6 +49,9 @@ public class MainActivity extends BaseActivity implements XBanner.XBannerAdapter
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //设置为主界面
+        setMainActivity(true);
 
         new MainPresenter(this, ApiRepository.getInstance());
     }
@@ -65,7 +71,7 @@ public class MainActivity extends BaseActivity implements XBanner.XBannerAdapter
 
     @Override
     protected void initEvent() {
-
+        mRecView.setClickListener(this);
     }
 
     @Override
@@ -90,6 +96,30 @@ public class MainActivity extends BaseActivity implements XBanner.XBannerAdapter
     @Override
     public void loadBanner(XBanner banner, Object model, View view, int position) {
         ((ImageView) view).setImageResource(mImages[position]);
+    }
+
+    @Override
+    public void onClick(ReceiptView.RecClick click) {
+        if (UIUtils.isDoubleClick()) return;
+        switch (click){
+            case CENTER:
+                showToast("收银");
+                break;
+            case TOP_LEFT:
+                intent2Activity(LoginActivity.class);
+                break;
+            case TOP_RIGHT:
+                showToast("其他");
+                break;
+            case BOTTOM_LEFT:
+                showToast("管理");
+                break;
+            case BOTTOM_RIGHT:
+                showToast("打印");
+                break;
+            default:
+                break;
+        }
     }
 
     @OnClick({R.id.title_iv_right, R.id.btn_merchant, R.id.btn_trans_list,
@@ -121,7 +151,7 @@ public class MainActivity extends BaseActivity implements XBanner.XBannerAdapter
     /**
      * 提示输入管理员密码弹出层
      */
-    private void showInputAdminPasswordDialog(){
+    private void showInputAdminPasswordDialog() {
         mEditDialogFragment = new EditDialogFragment();
         mEditDialogFragment.setDialogType(EditDialogFragment.DIALOG_TYPE_DEFAULT);
         mEditDialogFragment.addTitle(getString(R.string.pls_input_admin_password));
@@ -150,12 +180,14 @@ public class MainActivity extends BaseActivity implements XBanner.XBannerAdapter
 
     @Override
     public void onLoginFailure() {
-        intent2Activity(LoginActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putBoolean(IS_INTENT_2_USER, true);
+        intent2Activity(LoginActivity.class, bundle);
     }
 
     @Override
     public void intent2Setting() {
-        if (mEditDialogFragment != null && mEditDialogFragment.getDialog() != null){
+        if (mEditDialogFragment != null && mEditDialogFragment.getDialog() != null) {
             Dialog dialog = mEditDialogFragment.getDialog();
             if (dialog.isShowing()) mEditDialogFragment.dismiss();
             mEditDialogFragment = null;
@@ -178,4 +210,5 @@ public class MainActivity extends BaseActivity implements XBanner.XBannerAdapter
         super.onDestroy();
         mPresenter.onDestroy();
     }
+
 }

@@ -1,7 +1,8 @@
-package com.smart.desktop.client.activity.login;
+package com.smart.desktop.client.activity.merchant;
 
 import com.smart.desktop.base.IBasePresenter;
 import com.smart.desktop.base.IBaseView;
+import com.smart.desktop.core.bean.MerchantInfo;
 
 /**
  * 操作接口
@@ -9,24 +10,21 @@ import com.smart.desktop.base.IBaseView;
  * @author 谭忠扬-YuriTam
  * @time 2017年10月9日
  */
-public interface LoginContract {
+public interface MerchantContract {
 
     interface View extends IBaseView<Presenter> {
 
         /**
-         * 登录成功
-         */
-        void onSuccess();
-
-        /**
-         * 清空输入框
-         */
-        void clearEditText();
-
-        /**
-         * 提示消息
+         * 商户信息回调
          *
-         * @param errMsg 提示内容
+         * @param info
+         */
+        void showMerchantInfo(MerchantInfo info);
+
+        /**
+         * 提示信息
+         *
+         * @param errMsg 内容
          */
         void showMsg(String errMsg);
 
@@ -35,9 +33,9 @@ public interface LoginContract {
     interface Presenter extends IBasePresenter {
 
         /**
-         * 登录
+         * 获取商户信息
          */
-        void login(String userNo, String password);
+        void getMerchantInfo();
 
     }
 }

@@ -70,4 +70,23 @@
     <declare-styleable name="IconButton">
         <attr name="iconPadding" format="dimension"/>
     </declare-styleable>
+    <!-- 收银界面 -->
+    <declare-styleable name="ReceiptView">
+        <attr name="rec_center_text" format="string" />
+        <attr name="rec_center_text_size" format="dimension" />
+        <attr name="rec_tl_text" format="string" />
+        <attr name="rec_tr_text" format="string" />
+        <attr name="rec_bl_text" format="string" />
+        <attr name="rec_br_text" format="string" />
+        <attr name="rec_rect_text_size" format="dimension" />
+        <attr name="rec_text_color" format="color" />
+        <attr name="rec_radius" format="dimension"/>
+        <attr name="rec_padding" format="dimension"/>
+        <attr name="rec_adjustment" format="dimension"/>
+        <attr name="rec_arc_width" format="dimension"/>
+        <attr name="rec_color" format="color" />
+        <attr name="rec_gap_width" format="dimension"/>
+        <attr name="rec_gap_color" format="color" />
+        <attr name="rec_press_color" format="color" />
+    </declare-styleable>
 </resources>
