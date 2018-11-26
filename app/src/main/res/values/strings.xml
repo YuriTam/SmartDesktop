@@ -8,6 +8,7 @@
     <string name="fail">失败</string>
     <string name="confirm">确定</string>
     <string name="cancel">取消</string>
+    <string name="save">保存</string>
     <string name="tip">提示</string>
     <string name="exist">退出</string>
     <string name="unknown">未知</string>
@@ -70,6 +71,7 @@
     <string name="input_user_no_is_empty">输入编号不可为空</string>
     <string name="input_password_is_empty">输入密码不可为空</string>
     <string name="pls_contact_admin">请联系管理员</string>
+    <string name="user_no_is_no_exist">该操作员编号不存在</string>
 
     <!-- 版本信息相关 -->
     <string name="check_update">版本检测</string>
@@ -127,7 +129,15 @@
     <string name="merchant_user_name">商户姓名</string>
     <string name="bank_account_no">结算账户</string>
     <string name="merchant_address">商户地址</string>
-    <string name="user_no_is_no_exist">该操作员编号不存在</string>
+
+    <!-- 添加、编辑操作员 -->
+    <string name="add_user">添加操作员</string>
+    <string name="edit_user">编辑操作员</string>
+    <string name="user_no_is_exist">该操作员编号已存在</string>
+    <string name="input_password_is_no_eq">输入密码不一致</string>
+    <string name="can_no_delete_unless_supervisor">非主管操作员，不可删除</string>
+    <string name="can_no_edit_unless_supervisor">非主管操作员，不可编辑</string>
+    <string name="edit_success">修改成功</string>
 
 
 </resources>

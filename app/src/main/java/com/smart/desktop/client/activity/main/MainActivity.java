@@ -13,7 +13,7 @@ import com.smart.desktop.client.activity.login.LoginActivity;
 import com.smart.desktop.client.activity.merchant.MerchantActivity;
 import com.smart.desktop.client.activity.setting.SettingActivity;
 import com.smart.desktop.client.activity.trans_list.TransListActivity;
-import com.smart.desktop.client.activity.user.UserActivity;
+import com.smart.desktop.client.activity.user_list.UserListActivity;
 import com.smart.desktop.client.activity.version.VersionActivity;
 import com.smart.desktop.client.fragment.EditDialogFragment;
 import com.smart.desktop.common.widget.ReceiptView;
@@ -175,7 +175,7 @@ public class MainActivity extends BaseActivity implements XBanner.XBannerAdapter
 
     @Override
     public void onLoginSuccess() {
-        intent2Activity(UserActivity.class);
+        intent2Activity(UserListActivity.class);
     }
 
     @Override

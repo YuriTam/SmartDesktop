@@ -1,4 +1,4 @@
-package com.smart.desktop.client.activity.user;
+package com.smart.desktop.client.activity.user_list;
 
 import com.smart.desktop.base.IBasePresenter;
 import com.smart.desktop.base.IBaseView;
@@ -12,7 +12,7 @@ import java.util.List;
  * @author 谭忠扬-YuriTam
  * @time 2017年10月9日
  */
-public interface UserContract {
+public interface UserListContract {
 
     interface View extends IBaseView<Presenter> {
 
@@ -31,6 +31,18 @@ public interface UserContract {
         void onUserList(List<UserInfo> userList);
 
         /**
+         * 删除成功
+         */
+        void onDeleteSuccess();
+
+        /**
+         * 编辑
+         *
+         * @param userNo 编号
+         */
+        void onEditUser(String userNo);
+
+        /**
          * 提示信息
          *
          * @param errMsg 内容
@@ -47,9 +59,18 @@ public interface UserContract {
         void getUserList();
 
         /**
-         * 添加操作员
+         * 编辑操作员
+         *
+         * @param userNo
          */
-        void addUser();
+        void editUser(String userNo);
+
+        /**
+         * 删除操作员
+         *
+         * @param userNo
+         */
+        void deleteUser(String userNo);
 
     }
 }

@@ -12,7 +12,7 @@ public enum UserType {
 
     ADMIN("99"), //系统管理员
 
-    OTHER("");  //普通操作员
+    OTHER("01");  //普通操作员
 
     private String userNo;
 

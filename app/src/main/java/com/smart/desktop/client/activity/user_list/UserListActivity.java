@@ -1,6 +1,7 @@
-package com.smart.desktop.client.activity.user;
+package com.smart.desktop.client.activity.user_list;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,9 @@ import android.widget.TextView;
 import com.common.utils.UIUtils;
 import com.smart.desktop.R;
 import com.smart.desktop.base.BaseActivity;
+import com.smart.desktop.client.activity.user_add.UserAddActivity;
+import com.smart.desktop.client.activity.user_edit.UserEditActivity;
+import com.smart.desktop.common.constant.SysCode;
 import com.smart.desktop.common.enums.UserType;
 import com.smart.desktop.common.widget.RoundImageView;
 import com.smart.desktop.common.widget.TitleBuilder;
@@ -30,7 +34,7 @@ import butterknife.OnClick;
  * @author 谭忠扬-YuriTam
  * @time 2018年12月21日
  */
-public class UserActivity extends BaseActivity implements UserContract.View {
+public class UserListActivity extends BaseActivity implements UserListContract.View {
 
     @BindView(R.id.iv_avatar)
     RoundImageView ivAvatar;
@@ -44,13 +48,13 @@ public class UserActivity extends BaseActivity implements UserContract.View {
     private UserListAdapter mAdapter;
     private List<UserInfo> mUserList;
 
-    private UserContract.Presenter mPresenter;
+    private UserListContract.Presenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        new UserPresenter(this, ApiRepository.getInstance());
+        new UserListPresenter(this, ApiRepository.getInstance());
     }
 
     @Override
@@ -92,10 +96,18 @@ public class UserActivity extends BaseActivity implements UserContract.View {
                 finish();
                 break;
             case R.id.title_tv_right:
-                mPresenter.addUser();
+                intent2ActivityForResult(UserAddActivity.class);
                 break;
             default:
                 break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == SysCode.REQ_CODE && resultCode == SysCode.RESP_CODE){
+            mPresenter.getUserList();
         }
     }
 
@@ -129,12 +141,22 @@ public class UserActivity extends BaseActivity implements UserContract.View {
     }
 
     @Override
+    public void onDeleteSuccess() {
+        mPresenter.getUserList();
+    }
+
+    @Override
+    public void onEditUser(String userNo) {
+        startActivity(UserEditActivity.newInstance(mContext, userNo));
+    }
+
+    @Override
     public void showMsg(String errMsg) {
         showToast(errMsg);
     }
 
     @Override
-    public void setPresenter(UserContract.Presenter presenter) {
+    public void setPresenter(UserListContract.Presenter presenter) {
         mPresenter = presenter;
     }
 
@@ -184,10 +206,10 @@ public class UserActivity extends BaseActivity implements UserContract.View {
             mHolder.tvDelete.setText(R.string.delete);
 
             //编辑事件
-//            mHolder.tvEdit.setOnClickListener(v -> mPresenter.editOperatorInfo(info.getOperatorNo()));
+            mHolder.tvEdit.setOnClickListener(v -> mPresenter.editUser(info.getUserNo()));
 
             //删除事件
-//            mHolder.tvDelete.setOnClickListener(v -> mPresenter.confirmDelete(info.getOperatorNo()));
+            mHolder.tvDelete.setOnClickListener(v -> mPresenter.deleteUser(info.getUserNo()));
 
             return convertView;
         }
