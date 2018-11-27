@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".client.activity.setting.settle.SettleSettingActivity">
+
+    <include layout="@layout/include_title_bar"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+    <include layout="@layout/item_divider"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10.0dp"
+        android:layout_marginTop="10.0dp"
+        android:paddingLeft="20.0dp"
+        android:paddingRight="20.0dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="@string/is_only_settle_current_day_data"
+            android:textSize="@dimen/size_normal" />
+
+        <com.smart.desktop.common.widget.SwitchButton
+            android:id="@+id/check_settle_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="-2dp"
+            app:sb_checked="true"/>
+
+    </RelativeLayout>
+
+    <include layout="@layout/item_divider"/>
+
+</LinearLayout>

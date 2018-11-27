@@ -47,6 +47,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".client.activity.cash_register.CashRegisterActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".client.activity.main.MainActivity" />
+        </activity>
         <!-- 商户信息界面 -->
         <activity android:name=".client.activity.merchant.MerchantActivity">
             <meta-data
@@ -80,9 +85,41 @@
         <!-- 登录界面 -->
         <activity android:name=".client.activity.login.LoginActivity" />
         <!-- 操作员信息界面 -->
-        <activity android:name=".client.activity.user_list.UserListActivity" />
-        <activity android:name=".client.activity.user_add.UserAddActivity" />
-        <activity android:name=".client.activity.user_edit.UserEditActivity"></activity>
+        <activity android:name=".client.activity.user_list.UserListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".client.activity.main.MainActivity" />
+        </activity>
+        <!-- 添加操作员界面 -->
+        <activity android:name=".client.activity.user_add.UserAddActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".client.activity.user_list.UserListActivity" />
+        </activity>
+        <!-- 操作员密码编辑界面 -->
+        <activity android:name=".client.activity.user_edit.UserEditActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".client.activity.user_list.UserListActivity" />
+        </activity>
+        <!-- 打印相关设置界面 -->
+        <activity android:name=".client.activity.setting.print.PrintSettingActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".client.activity.setting.SettingActivity" />
+        </activity>
+        <!-- 结算相关设置界面 -->
+        <activity android:name=".client.activity.setting.settle.SettleSettingActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".client.activity.setting.SettingActivity" />
+        </activity>
+        <!-- 电子签名设置界面 -->
+        <activity android:name=".client.activity.setting.signature.SignatureSettingActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".client.activity.setting.SettingActivity" />
+        </activity>
     </application>
 
 </manifest>

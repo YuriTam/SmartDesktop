@@ -32,14 +32,11 @@ public class ParamKey {
     public static final String IS_SUPPORT_ELEC_SIGNATURE = "is_support_elec_signature";
     public static final String IS_SHOW_CONFIRM_SIGNATURE = "is_show_confirm_signature";
     public static final String SIGNATURE_TIME_OUT = "signature_time_out";
-    public static final String SIGNATURE_UPLOAD_TIMES = "signature_upload_times";
     public static final String MAX_SIGNATURE_TIMES = "max_signature_times";
-    public static final String IS_NEED_PHONE_NUMBER = "is_need_phone_number";
-    public static final String IS_PRINT_SALES_SLIP = "is_print_sales_slip";
     //打印相关
+    public static final String IS_SUPPORT_PRINT = "is_support_print";
+    public static final String PRINT_HOT_LINE = "print_hot_line";
     public static final String PRINT_TIMES = "print_times";
     //结算相关
-    public static final String IS_SETTLE_CUEENT_DATE = "is_settle_current_date";
-    //服务热线
-    public static final String SERVICE_HPONE = "service_phone";
+    public static final String IS_SETTLE_CURRENT_DATE = "is_settle_current_date";
 }

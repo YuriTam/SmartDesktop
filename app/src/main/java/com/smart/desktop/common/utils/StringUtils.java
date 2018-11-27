@@ -28,6 +28,13 @@ public class StringUtils {
         return (s == null || s.trim().length() == 0);
     }
 
+    /**
+     * 将561561315 -> 5615613.15
+     *
+     * @param number
+     * @param digits
+     * @return
+     */
     public static String formatAmount(String number, int digits) {
         if (TextUtils.isEmpty(number)) number = "0";
         NumberFormat format;

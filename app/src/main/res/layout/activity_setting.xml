@@ -9,4 +9,94 @@
 
     <include layout="@layout/include_title_bar"/>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+    <include layout="@layout/item_divider"/>
+
+    <com.smart.desktop.common.widget.ArrowLinearLayout
+        android:id="@+id/all_wifi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon_src="@drawable/wifi_icon"
+        app:arrow_name="@string/wifi_setting"/>
+
+    <include layout="@layout/item_divider"/>
+
+    <com.smart.desktop.common.widget.ArrowLinearLayout
+        android:id="@+id/all_network"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon_src="@drawable/network_icon"
+        app:arrow_name="@string/mobile_data_setting"/>
+
+    <include layout="@layout/item_divider"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+    <include layout="@layout/item_divider"/>
+
+    <com.smart.desktop.common.widget.ArrowLinearLayout
+        android:id="@+id/all_display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon_src="@drawable/display_icon"
+        app:arrow_name="@string/display_setting"/>
+
+    <include layout="@layout/item_divider"/>
+
+    <com.smart.desktop.common.widget.ArrowLinearLayout
+        android:id="@+id/all_auth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon_src="@drawable/auth_icon"
+        app:arrow_name="@string/suth_setting"/>
+
+    <include layout="@layout/item_divider"/>
+
+    <com.smart.desktop.common.widget.ArrowLinearLayout
+        android:id="@+id/all_device_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon_src="@drawable/device_info_icon"
+        app:arrow_name="@string/device_info"/>
+
+    <include layout="@layout/item_divider"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+    <include layout="@layout/item_divider"/>
+
+    <com.smart.desktop.common.widget.ArrowLinearLayout
+        android:id="@+id/all_signature"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon_src="@drawable/signature_icon"
+        app:arrow_name="@string/signature_setting"/>
+
+    <include layout="@layout/item_divider"/>
+
+    <com.smart.desktop.common.widget.ArrowLinearLayout
+        android:id="@+id/all_print"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon_src="@drawable/print_icon"
+        app:arrow_name="@string/print_setting"/>
+
+    <include layout="@layout/item_divider"/>
+
+    <com.smart.desktop.common.widget.ArrowLinearLayout
+        android:id="@+id/all_settle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon_src="@drawable/settle_icon"
+        app:arrow_name="@string/settle_setting"/>
+
+    <include layout="@layout/item_divider"/>
+
 </LinearLayout>

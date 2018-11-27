@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import com.common.utils.UIUtils;
 import com.smart.desktop.R;
 import com.smart.desktop.base.BaseActivity;
+import com.smart.desktop.client.activity.cash_register.CashRegisterActivity;
 import com.smart.desktop.client.activity.login.LoginActivity;
 import com.smart.desktop.client.activity.merchant.MerchantActivity;
 import com.smart.desktop.client.activity.setting.SettingActivity;
@@ -103,7 +104,7 @@ public class MainActivity extends BaseActivity implements XBanner.XBannerAdapter
         if (UIUtils.isDoubleClick()) return;
         switch (click){
             case CENTER:
-                showToast("收银");
+                intent2Activity(CashRegisterActivity.class);
                 break;
             case TOP_LEFT:
                 intent2Activity(LoginActivity.class);

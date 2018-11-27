@@ -149,6 +149,8 @@
     <color name="darkblue">#ff00008b</color>
     <color name="navy">#ff000080</color>
 
+    <color name="key_board_text">#616161</color>
+
     <color name="read_card_background">#242424</color>
     <color name="trans_amount_color">#fc5821</color>
     <color name="trans_success_color">#34bf31</color>

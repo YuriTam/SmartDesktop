@@ -3,42 +3,31 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/arrow_layout_bg"
-    android:orientation="vertical">
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:paddingTop="12dp"
+    android:paddingBottom="12dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp">
 
-    <include layout="@layout/item_divider"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:paddingTop="12dp"
-        android:paddingBottom="12dp"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp">
+        android:contentDescription="icon"
+        android:visibility="gone"/>
 
-        <ImageView
-            android:id="@+id/iv_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="icon"
-            android:visibility="gone"/>
+    <TextView
+        android:id="@+id/tv_arrow_name"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:paddingLeft="10dp"
+        android:textSize="16sp"/>
 
-        <TextView
-            android:id="@+id/tv_arrow_name"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:paddingLeft="10dp"
-            android:textSize="16sp"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/list_drop"/>
-
-    </LinearLayout>
-
-    <include layout="@layout/item_divider"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/list_drop"/>
 
 </LinearLayout>

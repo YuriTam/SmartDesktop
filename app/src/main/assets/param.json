@@ -1,7 +1,11 @@
 {
+  "is_support_print":"1",
+  "print_hot_line":"",
   "print_times":"2",
   "is_support_elec_signature":"1",
+  "is_show_confirm_signature":"0",
   "max_signature_times":"3",
+  "signature_time_out":"60",
   "is_settle_current_date":"1",
   "service_phone":"95596"
 }

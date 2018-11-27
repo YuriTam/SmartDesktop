@@ -39,11 +39,15 @@
         android:layout_width="match_parent"
         android:layout_height="20dp"/>
 
+    <include layout="@layout/item_divider"/>
+
     <com.smart.desktop.common.widget.ArrowLinearLayout
         android:id="@+id/all_check_update"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:icon_src="@drawable/version_info_icon"
         app:arrow_name="@string/check_update"/>
+
+    <include layout="@layout/item_divider"/>
 
 </LinearLayout>
